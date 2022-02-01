@@ -4,15 +4,15 @@ pragma solidity >= 0.5.0 < 0.9.0;
 contract AddressBook {
     mapping(address => address[]) private _addresses;
 
-    mapping(address => mapping(address => string)) private _aliases;
+    mapping(address => mapping(address => string)) private _namesBook;
 
     function getAddressArray (address _addr) public  view returns (address[] memory) {
         return _addresses[_addr];
     }
 
-    function AddAddress(address addr, string memory alia) public {
+    function AddAddress(address addr, string memory nameBook) public {
         _addresses[msg.sender].push(addr);
-        _aliases[msg.sender][addr] = alia;
+        _namesBook[msg.sender][addr] = nameBook;
     }
 
     function removeAddress(address addr) public {
@@ -23,7 +23,7 @@ contract AddressBook {
                     _addresses[msg.sender][index] = _addresses[msg.sender][index+1];
                 }
                 _addresses[msg.sender].pop();
-                delete _aliases[msg.sender][addr];
+                delete _namesBook[msg.sender][addr];
                 break;
 
             }
@@ -31,8 +31,8 @@ contract AddressBook {
 
     }
 
-    function getAlias(address addrOwner, address addr) public view returns (string memory){
-        return _aliases[addrOwner][addr];
+    function getNameBook(address addrOwner, address addr) public view returns (string memory){
+        return _namesBook[addrOwner][addr];
     }
 
 }
