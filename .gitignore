@@ -1,0 +1,4 @@
+#Local  files
+.env
+.secret
+node_modules/
