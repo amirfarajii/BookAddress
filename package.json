@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/amirfaraji78/BookAddress/issues"
   },
-  "homepage": "https://github.com/amirfaraji78/BookAddress#readme"
+  "homepage": "https://github.com/amirfaraji78/BookAddress#readme",
+  "dependencies": {
+    "@truffle/hdwallet-provider": "^2.0.2",
+    "dotenv": "^15.0.0"
+  }
 }
